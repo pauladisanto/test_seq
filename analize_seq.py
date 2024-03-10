@@ -21,9 +21,11 @@ for line in fasta_file:
     else:
         fasta_dict[fasta_label] += line
 
+
 for seq_name in fasta_dict:
     print(f"\n Analysis for sequence {seq_name}:")
     seq = Seq(fasta_dict[seq_name])
+    print(len(seq))
 
     print(f"The reverse complement is:")
     print(seq.reverse_complement())
@@ -31,3 +33,8 @@ for seq_name in fasta_dict:
     print(f"The transcript is:")
     messenger_rna=seq.transcribe()
     print(messenger_rna)
+
+    print(f"The protein is:")
+    protein_from_rna=seq.translate()
+    print(protein_from_rna)
+
